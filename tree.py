@@ -9,13 +9,12 @@ class Tree:
     def generateTree(self,currentNode):
         maxValue=max(currentNode.node_value)
         if maxValue <= 2:
-            currentNode.is_leaf = True
             return
         else:
             currentNodeValues=currentNode.node_value.copy()
             for index,value in enumerate(currentNodeValues):
                 totalChildren=(int(value/2)-1)if value%2==0 else int(value/2)
-                for i in range(1,totalChildren):
+                for i in range(1,totalChildren+1):
                     childValue = currentNodeValues.copy()
                     childValue[index] -= i
                     childValue.insert(index+1,i)
