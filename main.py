@@ -49,7 +49,8 @@ class Game:
         print("---------------------------------------------------")
         return choice_child
 
-    def check_comp_moving_choice(self, current_node) -> Node:
+    @staticmethod
+    def check_comp_moving_choice(current_node) -> Node:
         child_choice = current_node.children[0]
         for child in current_node.children:
             if child.evaluator_value:
@@ -78,7 +79,7 @@ class Game:
     def show_insert_number_of_stick(self):
         print("---------------------------------------------------")
         while True:
-            self.number_of_sticks = int(input("Insert number of sticks\t: "))
+            self.number_of_sticks = int(input("Insert number of tokens\t: "))
             if self.number_of_sticks > 0:
                 break
             print("Must be positive.\n")
