@@ -19,9 +19,7 @@ class Game:
         self.show_turn_choice()
         self.creating_tree()
         current_node = self.tree.rootNode
-        while not current_node.is_leaf:
-            if not self.available_moving_point(current_node):
-                break
+        while  self.available_moving_point(current_node):
             if self.isCurrentPlayer:
                 current_node = self.get_human_moving_choice(current_node)
             else:
@@ -37,12 +35,11 @@ class Game:
         print("\t\t\t"+("    (^_^)/ YOUR" if self.isCurrentPlayer else "['-']/ COMPUTER'S") + " TURN")
         print("---------------------------------------------------")
         print("Available Moving Point")
+        if current_node.is_leaf:
+            print("\nThere are no available moving point T____T", end="")
+            return False
         for index, child in enumerate(current_node.children):
-            if current_node.is_leaf:
-                print("\nThere are no available moving point T____T", end="")
-                return False
-            else:
-                print(str(index + 1) + ". [" + ("-".join(map(str, child.node_value))) + "]")
+            print(str(index + 1) + ". [" + ("-".join(map(str, child.node_value))) + "]")
         print("")
         return True
 
