@@ -53,12 +53,10 @@ class Game:
         return choice_child
 
     def check_comp_moving_choice(self, current_node) -> Node:
-        is_comp_max = not self.isPlayerFirst
         child_choice = current_node.children[0]
         for child in current_node.children:
             if child.evaluator_value:
-                if (is_comp_max and (child.evaluator_value > child_choice.evaluator_value)) or (
-                        not is_comp_max and (child.evaluator_value < child_choice.evaluator_value)):
+                if child.evaluator_value < child_choice.evaluator_value:
                     child_choice = child
         return child_choice
 
@@ -111,7 +109,7 @@ class Game:
     def creating_tree(self):
         print("---------------------------------------------------")
         print("Creating tree....")
-        self.tree = Tree(self.number_of_sticks, self.isAlgoMinMax)
+        self.tree = Tree(self.number_of_sticks, self.isPlayerFirst,self.isAlgoMinMax)
         print("Tree created.")
         self.isCurrentPlayer = self.isPlayerFirst
         print("---------------------------------------------------\n\n")
