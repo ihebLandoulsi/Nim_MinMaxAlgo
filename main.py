@@ -111,7 +111,7 @@ class Game:
     def creating_tree(self):
         print("---------------------------------------------------")
         print("Creating tree....")
-        self.tree = Tree(self.number_of_sticks, self.isPlayerFirst,self.isAlgoMinMax)
+        self.tree = Tree(self.number_of_sticks, self.isAlgoMinMax)
         print("Tree created.")
         self.isCurrentPlayer = self.isPlayerFirst
         print("---------------------------------------------------\n\n")

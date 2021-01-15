@@ -2,9 +2,8 @@ from anytree import Node
 from anytree import RenderTree
 
 class Tree:
-    def __init__(self, rootValue:int, isFirst:bool,isAlgoMinMax:bool):
+    def __init__(self, rootValue:int,isAlgoMinMax:bool):
         self.rootNode = Node(str(rootValue), node_value=[rootValue], is_root=True, evaluator_value=None)
-        self.isFirst = isFirst
         self.nodesVisited: int = 0
         self.generateTree(self.rootNode)
         if isAlgoMinMax:
