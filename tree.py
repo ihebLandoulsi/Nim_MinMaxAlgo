@@ -11,13 +11,13 @@ class Tree:
         else:
             self.evaluateTreeAlphaBeta(self.rootNode, None)
     def generateTree(self,currentNode):
-        maxValue=max(currentNode.node_value)
+        maxValue = max(currentNode.node_value)
         if maxValue <= 2:
             return
         else:
-            currentNodeValues=currentNode.node_value.copy()
+            currentNodeValues = currentNode.node_value.copy()
             for index, value in enumerate(currentNodeValues):
-                totalChildren=(int(value/2)-1)if value % 2 == 0 else int(value/2)
+                totalChildren = (int(value/2)-1)if value % 2 == 0 else int(value/2)
                 for i in range(1,totalChildren+1):
                     childValue = currentNodeValues.copy()
                     childValue[index] -= i
